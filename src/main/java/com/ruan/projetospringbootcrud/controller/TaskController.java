@@ -13,36 +13,36 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ruan.projetospringbootcrud.model.Task;
-import com.ruan.projetospringbootcrud.repository.TaskReposiroty;
+import com.ruan.projetospringbootcrud.repository.TaskRepository;
 import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/v1")
 public class TaskController {
     @Autowired
-    private TaskReposiroty taskReposiroty;
+    private TaskRepository taskRepository;
 
     @GetMapping("/tasks")
     public List < Task > getAllTasks() {
-        return taskReposiroty.findAll();
+        return taskRepository.findAll();
     }
 
     
     @PostMapping("/tasks")
     public Task createTask(@Valid @RequestBody Task task) {
-        taskReposiroty.save(task);
+        taskRepository.save(task);
         return task;
     }
 
     @PutMapping("/tasks")
     public Task editTask(@Valid @RequestBody Task task) {
-        taskReposiroty.save(task);
+        taskRepository.save(task);
         return task;
     }
 
     @DeleteMapping(path ="/tasks/{id}")
     public void deleteTask(@PathVariable long id){
-        taskReposiroty.deleteById(id);
+        taskRepository.deleteById(id);
     }
 
 }

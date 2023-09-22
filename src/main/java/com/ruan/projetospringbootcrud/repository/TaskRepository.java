@@ -7,6 +7,6 @@ import com.ruan.projetospringbootcrud.model.Task;
 
 
 @Repository
-public interface TaskReposiroty extends JpaRepository<Task, Long>{
+public interface TaskRepository extends JpaRepository<Task, Long>{
 
 }
